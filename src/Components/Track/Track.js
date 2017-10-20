@@ -5,6 +5,11 @@ import './Track.css'
 let isRemoval = true
 
 class Track extends React.Component{
+  constructor(){
+    super(props);
+    this.addTrack = this.addTrack.bind(this);
+  }
+
   renderAction(){
 
     if (isRemoval) {
@@ -15,6 +20,11 @@ class Track extends React.Component{
 
     // Step 27 Create a method called renderAction that displays a - anchor tag if the isRemoval property is true, and a + anchor tag if the isRemoval property is false. Set the class name to Track-action.
   }
+
+  addTrack(){
+    this.props.onAdd={this.props.track}
+  };
+
   render(){
     return(
       <div className="Track">
