@@ -4,13 +4,12 @@ import Track from '../Track/Track'
 
 class TrackList extends React.Component{
   render(){
-    console.log(this.props.onAdd)
     return (
 
       <div className="TrackList">
       {
         this.props.tracks.map(track => {
-            return <Track key={track.id} onAdd={this.props.onAdd} track={track} />;
+            return <Track key={track.id} isRemoval={this.props.isRemoval} onAdd={this.props.onAdd} onRemove={this.props.onRemove} track={track} />;
         })
       }
       </div>
