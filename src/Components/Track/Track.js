@@ -1,5 +1,6 @@
 import React from 'react';
-import './Track.js';
+import './Track.css'
+
 
 let isRemoval = true
 
