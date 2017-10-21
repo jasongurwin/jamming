@@ -14,18 +14,17 @@ class App extends React.Component {
 
   addTrack(track) {
   let tracks = this.state.playlistTracks;
-  tracks.push(track);
+  if (tracks.filter(song => song.id === track.id).length === 0){
+    tracks.push(track);
+  }
+
   this.setState({playlistTracks: tracks});
 }
 
 removeTrack(track) {
 let tracks = this.state.playlistTracks;
-tracks.pop(track);
-console.log(tracks)
 tracks = tracks.filter(song => song.id !== track.id);
-console.log(tracks)
 this.setState({playlistTracks: tracks});
-console.log(this.state.playlistTracks)
 }
 
   render() {
