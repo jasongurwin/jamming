@@ -3,6 +3,7 @@ import './App.css';
 import SearchBar from '../SearchBar/SearchBar'
 import SearchResults from '../SearchResults/SearchResults'
 import Playlist from '../Playlist/Playlist'
+import Spotify from '../../util/Spotify'
 
 class App extends React.Component {
   constructor(props){
@@ -43,7 +44,8 @@ In a later step, you will pass the trackURIs array and playlistName to a method 
 }
 
 search(term){
-  console.log(term)
+  let results = Spotify.search(term);
+  this.setState(SearchResults: results)
 }
 
   render() {
