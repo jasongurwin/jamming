@@ -64,10 +64,10 @@ getUserId(){
   .then(response => { return response.json()})
   .then (jsonResponse => {
     if (jsonResponse.id){
-      let userId = jsonResponse.id
+      let userId=jsonResponse.id
+      return userId
     }
   })
-
 
 },
 
@@ -75,9 +75,9 @@ savePlaylist(playlistName,trackURIs){
 
 // savePlaylist(playlistName,trackURIs){
   const accessToken=Spotify.getAccessToken();
-  let headers = {headers: {Authorization: `Bearer ${accessToken}`}, method: 'POST', body: {name: playlistName}}
-  Spotify.getUserId()
+  let userId = Spotify.getUserId()
   console.log(userId)
+  // let headers = {headers: {Authorization: `Bearer ${accessToken}`}, method: 'POST', body: {name: playlistName}}
   // .then(return fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, headers))
   // console.log(userId)
 
