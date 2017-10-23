@@ -33,7 +33,9 @@ const Spotify = {
                   , {headers: {Authorization: `Bearer ${accessToken}`}})
                 .then(response => { return response.json()})
                 .then(jsonResponse => {
-
+                  if (!jsonResponse.tracks){
+                    return [];
+                  } else {
                     return jsonResponse.tracks.items.map(track => {
                       return {
                         id: track.id,
@@ -47,8 +49,7 @@ const Spotify = {
 
                     });
 
-
-
+                  }
 
                 });
 
