@@ -44,8 +44,8 @@ In a later step, you will pass the trackURIs array and playlistName to a method 
 }
 
 search(term){
-  let results = Spotify.search(term);
-  this.setState(SearchResults: results)
+  console.log(term)
+  Spotify.search(term)
 }
 
   render() {
