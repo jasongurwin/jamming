@@ -1,5 +1,6 @@
 let accessToken = ''
 let expiresIn =''
+let userId=''
 const clientId = '388aa5c5526c4453b522265d191052ca'
 const redirectUri = "http://localhost:3000/"
 
@@ -53,9 +54,35 @@ const Spotify = {
 
                 });
 
-              }
-            }
+              },
 
+
+getUserId(){
+  const accessToken=Spotify.getAccessToken();
+
+  return fetch('https://api.spotify.com/v1/me', {headers: {Authorization: `Bearer ${accessToken}`}})
+  .then(response => { return response.json()})
+  .then (jsonResponse => {
+    if (jsonResponse.id){
+      let userId = jsonResponse.id
+    }
+  })
+
+
+},
+
+savePlaylist(playlistName,trackURIs){
+
+// savePlaylist(playlistName,trackURIs){
+  const accessToken=Spotify.getAccessToken();
+  let headers = {headers: {Authorization: `Bearer ${accessToken}`}, method: 'POST', body: {name: playlistName}}
+  Spotify.getUserId()
+  console.log(userId)
+  // .then(return fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, headers))
+  // console.log(userId)
+
+}
+}
 
 
 export default Spotify

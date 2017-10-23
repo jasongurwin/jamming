@@ -50,6 +50,7 @@ search(term){
   Spotify.search(term).then(searchResults => {
     this.setState({searchResults: searchResults})
   });
+  console.log(Spotify.savePlaylist())
   // this.setState({searchResults: results});
 }
 
