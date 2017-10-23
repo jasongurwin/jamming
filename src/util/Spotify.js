@@ -3,7 +3,7 @@ let expiresIn =''
 let userId=''
 let playlistId=''
 const clientId = '388aa5c5526c4453b522265d191052ca'
-const redirectUri = "http://localhost:3000/"
+const redirectUri = "http://jasongurwin.github.io/jamming"
 
 const Spotify = {
 

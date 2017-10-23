@@ -43,7 +43,7 @@ savePlaylist(){
       })
 
     Spotify.savePlaylist(this.state.playlistName,trackUris)
-    this.setState({playlistName: ''});
+    this.setState({playlistName: 'New Playlist'});
 
 }
 
