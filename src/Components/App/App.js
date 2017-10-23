@@ -47,7 +47,7 @@ search(term){
   console.log(term)
   let results = Spotify.search(term)
   console.log(results)
-  // this.setState({playlistTracks: results});
+  // this.setState({SearchResults: results});
 }
 
   render() {
