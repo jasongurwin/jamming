@@ -1,6 +1,5 @@
 let accessToken = ''
 let expiresIn =''
-let jsonResponse=''
 const clientId = '388aa5c5526c4453b522265d191052ca'
 const redirectUri = "http://localhost:3000/"
 
@@ -32,7 +31,7 @@ const Spotify = {
 
     return fetch(`https://api.spotify.com/v1/search?type=track&q=${term}`
                   , {headers: {Authorization: `Bearer ${accessToken}`}})
-                .then(response => response.json())
+                .then(response => { return response.json()})
                 .then(jsonResponse => {
 
                     return jsonResponse.tracks.items.map(track => {
@@ -55,5 +54,7 @@ const Spotify = {
 
               }
             }
+
+
 
 export default Spotify
