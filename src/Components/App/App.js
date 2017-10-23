@@ -8,7 +8,7 @@ import Spotify from '../../util/Spotify'
 class App extends React.Component {
   constructor(props){
     super(props);
-    this.state = {searchResults: [{id:'1231', name:'Tiny Dancer Live', artist: 'Ben Folds', album: 'Ben Folds Live'},{id:'1232', name:'Tiny Dancer', artist: 'Elton John', album: 'Madman Across The Water'}],playlistName: 'Jasons Playlist',playlistTracks:[{id:'1233',name:'Yellow', artist: 'Coldplay', album: 'Over The Water'},{id:'1234',name:'Piano Man', artist: 'Billy Joel', album: 'The Piano Man'}]};
+    this.state = {searchResults: [],playlistName: 'New Playlist',playlistTracks:[]};
     this.addTrack = this.addTrack.bind(this);
     this.removeTrack = this.removeTrack.bind(this);
     this.updatePlaylistName = this.updatePlaylistName.bind(this);
@@ -33,24 +33,27 @@ this.setState({playlistTracks: tracks});
 
 updatePlaylistName(name) {
   this.setState({playlistName: name});
-  console.log(this.state.playlistName)
+  // console.log(this.state.playlistName)
 }
 
 savePlaylist(){
-  {/* Generates an array of uri values called trackURIs from the playlistTracks property.
-In a later step, you will pass the trackURIs array and playlistName to a method that will save the user's playlist to their account. */}
 
+    let trackUris = this.state.playlistTracks.map(track => {
+        return track.uri
+      })
+
+    Spotify.savePlaylist(this.state.playlistName,trackUris)
+    this.setState({playlistName: ''});
 
 }
 
 search(term){
-  console.log(term)
+  // console.log(term)
   // let results = Spotify.search(term)
   // console.log(results)
   Spotify.search(term).then(searchResults => {
     this.setState({searchResults: searchResults})
   });
-  console.log(Spotify.savePlaylist())
   // this.setState({searchResults: results});
 }
 

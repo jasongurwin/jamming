@@ -26,12 +26,12 @@ class Track extends React.Component{
 
   addTrack(event) {
   this.props.onAdd(this.props.track);
-  console.log(this.props.track)
+  // console.log(this.props.track)
 }
 
 removeTrack(event) {
 this.props.onRemove(this.props.track);
-console.log(this.props.track)
+// console.log(this.props.track)
 }
 
   render(){
