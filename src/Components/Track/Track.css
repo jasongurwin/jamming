@@ -25,6 +25,10 @@
 
 .Track-information h3 {
   margin-bottom: .22rem;
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .Track-information p {
